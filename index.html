@@ -4,39 +4,41 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>
-      Kit World Sports - Premium Custom Sports Kits | Play with Passion
+      Kit World Sports - Dominate the Game | Custom Sports Kits & Athletic Wear
     </title>
     <meta
       name="description"
-      content="Premium custom sports kits for teams and individuals. Cricket, football, basketball kits with custom names, numbers, and fast delivery. Play with Passion."
+      content="Elite custom sports kits engineered for champions. Cricket, football, basketball uniforms with pro-grade customization. Gear up, stand out, dominate. Play with Passion."
     />
 
     <!-- SEO and Social Media Tags -->
-    <meta
-      property="og:title"
-      content="Kit World Sports - Premium Custom Sports Kits"
-    />
+    <meta property="og:title" content="Kit World Sports - Dominate the Game" />
     <meta
       property="og:description"
-      content="Premium custom sports kits for teams and individuals. Cricket, football, basketball kits with custom names, numbers, and fast delivery."
+      content="Elite custom sports kits engineered for champions. Professional-grade athletic wear with unlimited customization options."
     />
     <meta property="og:image" content="/logo.png" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://kitworldsports.com" />
 
     <meta name="twitter:card" content="summary_large_image" />
-    <meta
-      name="twitter:title"
-      content="Kit World Sports - Premium Custom Sports Kits"
-    />
+    <meta name="twitter:title" content="Kit World Sports - Dominate the Game" />
     <meta
       name="twitter:description"
-      content="Premium custom sports kits for teams and individuals."
+      content="Elite custom sports kits engineered for champions."
     />
     <meta name="twitter:image" content="/logo.png" />
 
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="/logo.png" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Oswald:wght@200;300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
 
     <!-- TailwindCSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -46,13 +48,54 @@
           extend: {
             colors: {
               "primary-yellow": "#f5b33d",
-              "dark-charcoal": "#444c54",
-              "silver-gray": "#b4b7ba",
+              "dark-charcoal": "#2c3e50",
+              "silver-gray": "#95a5a6",
               "brand-black": "#000000",
+              "electric-blue": "#3498db",
+              "neon-green": "#2ecc71",
+              "fire-orange": "#e74c3c",
             },
             fontFamily: {
               sans: ["Inter", "system-ui", "sans-serif"],
-              heading: ["Roboto", "system-ui", "sans-serif"],
+              heading: ["Oswald", "system-ui", "sans-serif"],
+              display: ["Oswald", "system-ui", "sans-serif"],
+            },
+            animation: {
+              "fade-up": "fadeUp 0.6s ease-out",
+              "slide-in": "slideIn 0.8s ease-out",
+              "bounce-in": "bounceIn 0.8s ease-out",
+              "pulse-slow": "pulse 3s infinite",
+              glow: "glow 2s ease-in-out infinite alternate",
+            },
+            keyframes: {
+              fadeUp: {
+                "0%": { opacity: "0", transform: "translateY(30px)" },
+                "100%": { opacity: "1", transform: "translateY(0)" },
+              },
+              slideIn: {
+                "0%": { opacity: "0", transform: "translateX(-50px)" },
+                "100%": { opacity: "1", transform: "translateX(0)" },
+              },
+              bounceIn: {
+                "0%": { opacity: "0", transform: "scale(0.3)" },
+                "50%": { opacity: "1", transform: "scale(1.05)" },
+                "70%": { transform: "scale(0.9)" },
+                "100%": { opacity: "1", transform: "scale(1)" },
+              },
+              glow: {
+                "0%": { boxShadow: "0 0 20px rgba(245, 179, 61, 0.3)" },
+                "100%": { boxShadow: "0 0 40px rgba(245, 179, 61, 0.6)" },
+              },
+            },
+            backgroundImage: {
+              "hero-gradient":
+                "linear-gradient(135deg, rgba(52, 152, 219, 0.9) 0%, rgba(245, 179, 61, 0.8) 50%, rgba(231, 76, 60, 0.9) 100%)",
+              "card-gradient":
+                "linear-gradient(135deg, rgba(245, 179, 61, 0.1) 0%, rgba(52, 152, 219, 0.1) 100%)",
+              "dark-gradient":
+                "linear-gradient(135deg, #2c3e50 0%, #34495e 100%)",
+              "energy-gradient":
+                "linear-gradient(135deg, #f5b33d 0%, #e74c3c 50%, #2ecc71 100%)",
             },
           },
         },
@@ -61,78 +104,164 @@
 
     <!-- Custom CSS -->
     <style>
-      .hero-gradient {
+      .hero-text-shadow {
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+      }
+      .card-hover {
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+      .card-hover:hover {
+        transform: translateY(-10px) scale(1.02);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+      }
+      .btn-modern {
+        @apply relative overflow-hidden transition-all duration-300 transform hover:scale-105;
+      }
+      .btn-modern::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
         background: linear-gradient(
-          135deg,
-          rgba(0, 0, 0, 0.7) 0%,
-          rgba(0, 0, 0, 0.3) 50%,
-          rgba(0, 0, 0, 0.1) 100%
+          90deg,
+          transparent,
+          rgba(255, 255, 255, 0.2),
+          transparent
         );
+        transition: left 0.5s;
       }
-      .hover-zoom {
-        transition: transform 0.3s ease-in-out;
+      .btn-modern:hover::before {
+        left: 100%;
       }
-      .hover-zoom:hover {
-        transform: scale(1.05);
+      .sport-pattern {
+        background-image: radial-gradient(
+            circle at 25% 25%,
+            rgba(245, 179, 61, 0.1) 0%,
+            transparent 50%
+          ),
+          radial-gradient(
+            circle at 75% 75%,
+            rgba(52, 152, 219, 0.1) 0%,
+            transparent 50%
+          );
       }
-      .btn-primary {
-        @apply bg-primary-yellow text-brand-black font-bold py-3 px-6 rounded-lg transition-all duration-300 hover:bg-yellow-400 hover:shadow-lg;
-      }
-      .btn-secondary {
-        @apply bg-dark-charcoal text-white font-bold py-3 px-6 rounded-lg transition-all duration-300 hover:bg-opacity-90 hover:shadow-lg;
+      .text-outline {
+        text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+          1px 1px 0 #000;
       }
     </style>
   </head>
-  <body class="font-sans text-dark-charcoal bg-white">
-    <!-- Header -->
-    <header class="sticky top-0 z-50 bg-dark-charcoal shadow-lg">
-      <nav class="container mx-auto px-4 py-4">
+  <body class="font-sans text-dark-charcoal bg-white overflow-x-hidden">
+    <!-- Dynamic Background Elements -->
+    <div class="fixed inset-0 z-0 pointer-events-none">
+      <div
+        class="absolute top-20 left-10 w-72 h-72 bg-electric-blue opacity-10 rounded-full animate-pulse-slow"
+      ></div>
+      <div
+        class="absolute top-40 right-20 w-96 h-96 bg-primary-yellow opacity-10 rounded-full animate-pulse-slow animation-delay-1000"
+      ></div>
+      <div
+        class="absolute bottom-40 left-1/4 w-80 h-80 bg-neon-green opacity-10 rounded-full animate-pulse-slow animation-delay-2000"
+      ></div>
+    </div>
+
+    <!-- Modern Header -->
+    <header
+      class="relative z-50 bg-dark-gradient backdrop-blur-md bg-opacity-95 shadow-2xl"
+    >
+      <nav class="container mx-auto px-6 py-4">
         <div class="flex items-center justify-between">
           <!-- Logo -->
-          <div class="flex items-center">
-            <img
-              src="/logo.png"
-              alt="Kit World Sports Logo"
-              class="h-12 w-12 rounded-lg"
-            />
-            <span class="ml-3 text-white font-bold text-xl font-heading"
-              >Kit World Sports</span
-            >
+          <div class="flex items-center group">
+            <div class="relative">
+              <img
+                src="/logo.png"
+                alt="Kit World Sports Logo"
+                class="h-14 w-14 rounded-xl transition-transform duration-300 group-hover:rotate-12"
+              />
+              <div
+                class="absolute -inset-2 bg-primary-yellow opacity-20 rounded-xl animate-glow"
+              ></div>
+            </div>
+            <div class="ml-4">
+              <span
+                class="text-white font-bold text-2xl font-heading tracking-tight"
+              >
+                KIT WORLD
+              </span>
+              <div
+                class="text-primary-yellow text-sm font-semibold tracking-widest"
+              >
+                SPORTS
+              </div>
+            </div>
           </div>
 
           <!-- Desktop Navigation -->
-          <div class="hidden md:flex items-center space-x-8">
+          <div class="hidden lg:flex items-center space-x-8">
             <a
               href="#home"
-              class="text-white hover:text-primary-yellow transition-colors duration-300"
-              >Home</a
+              class="relative text-white font-semibold hover:text-primary-yellow transition-all duration-300 group"
             >
+              HOME
+              <span
+                class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary-yellow transition-all duration-300 group-hover:w-full"
+              ></span>
+            </a>
             <a
               href="#kits"
-              class="text-white hover:text-primary-yellow transition-colors duration-300"
-              >Kits</a
+              class="relative text-white font-semibold hover:text-primary-yellow transition-all duration-300 group"
             >
+              GEAR UP
+              <span
+                class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary-yellow transition-all duration-300 group-hover:w-full"
+              ></span>
+            </a>
             <a
               href="#customize"
-              class="text-white hover:text-primary-yellow transition-colors duration-300"
-              >Customize</a
+              class="relative text-white font-semibold hover:text-primary-yellow transition-all duration-300 group"
             >
+              CUSTOMIZE
+              <span
+                class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary-yellow transition-all duration-300 group-hover:w-full"
+              ></span>
+            </a>
             <a
-              href="#about"
-              class="text-white hover:text-primary-yellow transition-colors duration-300"
-              >About</a
+              href="#teams"
+              class="relative text-white font-semibold hover:text-primary-yellow transition-all duration-300 group"
             >
+              TEAMS
+              <span
+                class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary-yellow transition-all duration-300 group-hover:w-full"
+              ></span>
+            </a>
             <a
               href="#contact"
-              class="text-white hover:text-primary-yellow transition-colors duration-300"
-              >Contact</a
+              class="relative text-white font-semibold hover:text-primary-yellow transition-all duration-300 group"
             >
+              DOMINATE
+              <span
+                class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary-yellow transition-all duration-300 group-hover:w-full"
+              ></span>
+            </a>
+          </div>
+
+          <!-- CTA Button -->
+          <div class="hidden lg:block">
+            <a
+              href="#contact"
+              class="btn-modern bg-energy-gradient text-white font-bold py-3 px-8 rounded-full text-sm uppercase tracking-wide shadow-lg"
+            >
+              GET QUOTE
+            </a>
           </div>
 
           <!-- Mobile Menu Button -->
-          <button class="md:hidden text-white" onclick="toggleMobileMenu()">
+          <button class="lg:hidden text-white p-2" onclick="toggleMobileMenu()">
             <svg
-              class="w-6 h-6"
+              class="w-7 h-7"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -140,7 +269,7 @@
               <path
                 stroke-linecap="round"
                 stroke-linejoin="round"
-                stroke-width="2"
+                stroke-width="2.5"
                 d="M4 6h16M4 12h16M4 18h16"
               ></path>
             </svg>
@@ -148,33 +277,42 @@
         </div>
 
         <!-- Mobile Navigation -->
-        <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4">
-          <div class="flex flex-col space-y-4">
+        <div
+          id="mobile-menu"
+          class="hidden lg:hidden mt-6 pb-4 border-t border-gray-600"
+        >
+          <div class="flex flex-col space-y-4 pt-4">
             <a
               href="#home"
-              class="text-white hover:text-primary-yellow transition-colors duration-300"
-              >Home</a
+              class="text-white font-semibold hover:text-primary-yellow transition-colors duration-300 uppercase text-sm"
+              >HOME</a
             >
             <a
               href="#kits"
-              class="text-white hover:text-primary-yellow transition-colors duration-300"
-              >Kits</a
+              class="text-white font-semibold hover:text-primary-yellow transition-colors duration-300 uppercase text-sm"
+              >GEAR UP</a
             >
             <a
               href="#customize"
-              class="text-white hover:text-primary-yellow transition-colors duration-300"
-              >Customize</a
+              class="text-white font-semibold hover:text-primary-yellow transition-colors duration-300 uppercase text-sm"
+              >CUSTOMIZE</a
             >
             <a
-              href="#about"
-              class="text-white hover:text-primary-yellow transition-colors duration-300"
-              >About</a
+              href="#teams"
+              class="text-white font-semibold hover:text-primary-yellow transition-colors duration-300 uppercase text-sm"
+              >TEAMS</a
             >
             <a
               href="#contact"
-              class="text-white hover:text-primary-yellow transition-colors duration-300"
-              >Contact</a
+              class="text-white font-semibold hover:text-primary-yellow transition-colors duration-300 uppercase text-sm"
+              >DOMINATE</a
             >
+            <a
+              href="#contact"
+              class="btn-modern bg-energy-gradient text-white font-bold py-3 px-6 rounded-full text-sm uppercase tracking-wide w-fit"
+            >
+              GET QUOTE
+            </a>
           </div>
         </div>
       </nav>
@@ -183,339 +321,1050 @@
     <!-- Hero Section -->
     <section
       id="home"
-      class="relative h-screen flex items-center justify-center"
+      class="relative min-h-screen flex items-center justify-center overflow-hidden"
     >
-      <!-- Background Image -->
+      <!-- Dynamic Background -->
       <div
-        class="absolute inset-0 bg-cover bg-center"
-        style="
-          background-image: url('/assets/images/042661c1-4ad3-40b5-8ddd-f536020fa179.JPG');
-        "
+        class="absolute inset-0 bg-gradient-to-br from-gray-900 via-blue-900 to-gray-900"
       >
-        <div class="absolute inset-0 hero-gradient"></div>
+        <div
+          class="absolute inset-0 bg-cover bg-center opacity-40"
+          style="
+            background-image: url('/assets/images/042661c1-4ad3-40b5-8ddd-f536020fa179.JPG');
+          "
+        ></div>
+        <div class="absolute inset-0 hero-gradient opacity-80"></div>
+
+        <!-- Animated Elements -->
+        <div
+          class="absolute top-20 left-10 w-32 h-32 border-4 border-primary-yellow rounded-full animate-spin opacity-20"
+          style="animation-duration: 20s"
+        ></div>
+        <div
+          class="absolute top-40 right-20 w-24 h-24 border-4 border-electric-blue rounded-full animate-bounce opacity-30"
+          style="animation-duration: 3s"
+        ></div>
+        <div
+          class="absolute bottom-40 left-1/4 w-20 h-20 bg-neon-green rounded-full animate-pulse opacity-40"
+        ></div>
       </div>
 
       <!-- Content -->
-      <div class="relative z-10 text-center text-white px-4">
-        <h1 class="text-5xl md:text-7xl font-bold font-heading mb-6">
-          Premium Custom Sports Kits
-        </h1>
-        <p class="text-xl md:text-2xl mb-8 font-semibold">Play with Passion</p>
-        <div class="flex flex-col sm:flex-row gap-4 justify-center">
-          <a href="#kits" class="btn-primary">Shop Kits</a>
-          <a href="#contact" class="btn-secondary">Get a Quote</a>
+      <div class="relative z-10 text-center text-white px-6 max-w-6xl mx-auto">
+        <!-- Main Headline -->
+        <div class="animate-fade-up">
+          <h1
+            class="text-6xl md:text-8xl lg:text-9xl font-black font-display mb-6 leading-none"
+          >
+            <span class="text-outline block">DOMINATE</span>
+            <span
+              class="bg-energy-gradient bg-clip-text text-transparent block transform -translate-y-4"
+            >
+              THE GAME
+            </span>
+          </h1>
         </div>
-      </div>
-    </section>
 
-    <!-- Value Proposition -->
-    <section class="py-16 bg-gray-50">
-      <div class="container mx-auto px-4">
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          <div class="text-center">
-            <div
-              class="w-16 h-16 bg-primary-yellow rounded-full flex items-center justify-center mx-auto mb-4"
+        <!-- Subheadline -->
+        <div class="animate-fade-up animation-delay-300">
+          <p
+            class="text-2xl md:text-4xl font-bold mb-8 text-primary-yellow tracking-wide"
+          >
+            ENGINEERED FOR CHAMPIONS
+          </p>
+          <p class="text-lg md:text-xl mb-12 max-w-3xl mx-auto leading-relaxed">
+            Elite custom sports kits built with precision, performance, and
+            passion.
+            <span class="text-neon-green font-semibold"
+              >Gear up. Stand out. Conquer.</span
             >
-              <svg
-                class="w-8 h-8 text-brand-black"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-              >
-                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-              </svg>
-            </div>
-            <h3 class="text-xl font-bold mb-2">High-Quality Fabric</h3>
-            <p class="text-silver-gray">
-              Premium materials for comfort and durability
-            </p>
-          </div>
-
-          <div class="text-center">
-            <div
-              class="w-16 h-16 bg-primary-yellow rounded-full flex items-center justify-center mx-auto mb-4"
-            >
-              <svg
-                class="w-8 h-8 text-brand-black"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-              >
-                <path
-                  d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"
-                />
-              </svg>
-            </div>
-            <h3 class="text-xl font-bold mb-2">Custom Names & Numbers</h3>
-            <p class="text-silver-gray">
-              Personalized jerseys with professional printing
-            </p>
-          </div>
-
-          <div class="text-center">
-            <div
-              class="w-16 h-16 bg-primary-yellow rounded-full flex items-center justify-center mx-auto mb-4"
-            >
-              <svg
-                class="w-8 h-8 text-brand-black"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-              >
-                <path
-                  d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
-                />
-              </svg>
-            </div>
-            <h3 class="text-xl font-bold mb-2">Fast Delivery</h3>
-            <p class="text-silver-gray">Quick turnaround for your team needs</p>
-          </div>
-
-          <div class="text-center">
-            <div
-              class="w-16 h-16 bg-primary-yellow rounded-full flex items-center justify-center mx-auto mb-4"
-            >
-              <svg
-                class="w-8 h-8 text-brand-black"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-              >
-                <path
-                  d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z"
-                />
-              </svg>
-            </div>
-            <h3 class="text-xl font-bold mb-2">Team Discounts</h3>
-            <p class="text-silver-gray">
-              Special pricing for teams and bulk orders
-            </p>
-          </div>
+          </p>
         </div>
-      </div>
-    </section>
 
-    <!-- Featured Kits Grid -->
-    <section id="kits" class="py-16">
-      <div class="container mx-auto px-4">
-        <h2 class="text-4xl font-bold text-center mb-12 font-heading">
-          Featured Sports Kits
-        </h2>
+        <!-- CTA Buttons -->
         <div
-          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8"
+          class="animate-fade-up animation-delay-600 flex flex-col sm:flex-row gap-6 justify-center items-center"
         >
-          <div class="bg-white rounded-lg shadow-lg overflow-hidden hover-zoom">
-            <img
-              src="/assets/images/042661c1-4ad3-40b5-8ddd-f536020fa179.JPG"
-              alt="Cricket Kit"
-              class="w-full h-64 object-cover"
-              loading="lazy"
-            />
-            <div class="p-6">
-              <h3 class="text-xl font-bold mb-2">Cricket Kit</h3>
-              <p class="text-silver-gray mb-4">Premium cricket uniform</p>
-              <div class="flex justify-between items-center">
-                <span class="text-2xl font-bold text-primary-yellow"
-                  >PKR 2,500</span
-                >
-                <button class="btn-primary">View Details</button>
+          <a
+            href="#kits"
+            class="btn-modern bg-primary-yellow text-black font-black py-4 px-10 rounded-full text-lg uppercase tracking-wide shadow-2xl"
+          >
+            ⚡ SHOP KITS
+          </a>
+          <a
+            href="#customize"
+            class="btn-modern bg-transparent border-2 border-white text-white font-black py-4 px-10 rounded-full text-lg uppercase tracking-wide hover:bg-white hover:text-black transition-all duration-300"
+          >
+            🎨 CUSTOMIZE NOW
+          </a>
+        </div>
+
+        <!-- Stats -->
+        <div
+          class="animate-fade-up animation-delay-900 grid grid-cols-3 gap-8 mt-20 max-w-2xl mx-auto"
+        >
+          <div class="text-center">
+            <div
+              class="text-3xl md:text-4xl font-black text-primary-yellow mb-2"
+            >
+              500+
+            </div>
+            <div class="text-sm uppercase tracking-wide opacity-80">
+              Teams Geared
+            </div>
+          </div>
+          <div class="text-center">
+            <div
+              class="text-3xl md:text-4xl font-black text-electric-blue mb-2"
+            >
+              50K+
+            </div>
+            <div class="text-sm uppercase tracking-wide opacity-80">
+              Kits Delivered
+            </div>
+          </div>
+          <div class="text-center">
+            <div class="text-3xl md:text-4xl font-black text-neon-green mb-2">
+              100%
+            </div>
+            <div class="text-sm uppercase tracking-wide opacity-80">
+              Custom Ready
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Scroll Indicator -->
+      <div
+        class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce"
+      >
+        <div
+          class="w-6 h-10 border-2 border-white rounded-full flex justify-center"
+        >
+          <div class="w-1 h-3 bg-white rounded-full mt-2 animate-pulse"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Elite Performance Features -->
+    <section
+      class="py-20 bg-gradient-to-br from-gray-900 via-blue-900 to-gray-900 relative overflow-hidden"
+    >
+      <!-- Background Pattern -->
+      <div class="absolute inset-0 sport-pattern"></div>
+
+      <div class="container mx-auto px-6 relative z-10">
+        <div class="text-center mb-16">
+          <h2
+            class="text-5xl md:text-6xl font-black font-display text-white mb-6"
+          >
+            BUILT FOR
+            <span class="text-primary-yellow block">CHAMPIONS</span>
+          </h2>
+          <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+            Every kit engineered with precision, performance, and passion for
+            those who demand excellence
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div
+            class="bg-dark-gradient rounded-2xl p-8 text-center card-hover border border-gray-700"
+          >
+            <div class="relative mb-6">
+              <div
+                class="w-20 h-20 bg-energy-gradient rounded-2xl flex items-center justify-center mx-auto relative"
+              >
+                <span class="text-3xl">⚡</span>
+                <div
+                  class="absolute -inset-1 bg-primary-yellow opacity-30 rounded-2xl animate-glow"
+                ></div>
               </div>
+            </div>
+            <h3 class="text-2xl font-bold text-white mb-4">Pro-Grade Fabric</h3>
+            <p class="text-gray-400 leading-relaxed">
+              Moisture-wicking, breathable materials that perform under pressure
+            </p>
+            <div class="mt-6">
+              <span
+                class="inline-block bg-neon-green text-black text-sm font-bold px-3 py-1 rounded-full"
+              >
+                ELITE PERFORMANCE
+              </span>
             </div>
           </div>
 
-          <div class="bg-white rounded-lg shadow-lg overflow-hidden hover-zoom">
-            <img
-              src="/assets/images/069eba1d-2ae3-4bed-9e25-332fdc3fb072.JPG"
-              alt="Football Kit"
-              class="w-full h-64 object-cover"
-              loading="lazy"
-            />
-            <div class="p-6">
-              <h3 class="text-xl font-bold mb-2">Football Kit</h3>
-              <p class="text-silver-gray mb-4">Professional football jersey</p>
-              <div class="flex justify-between items-center">
-                <span class="text-2xl font-bold text-primary-yellow"
-                  >PKR 3,200</span
-                >
-                <button class="btn-primary">View Details</button>
+          <div
+            class="bg-dark-gradient rounded-2xl p-8 text-center card-hover border border-gray-700"
+          >
+            <div class="relative mb-6">
+              <div
+                class="w-20 h-20 bg-energy-gradient rounded-2xl flex items-center justify-center mx-auto relative"
+              >
+                <span class="text-3xl">🎯</span>
+                <div
+                  class="absolute -inset-1 bg-electric-blue opacity-30 rounded-2xl animate-glow"
+                ></div>
               </div>
+            </div>
+            <h3 class="text-2xl font-bold text-white mb-4">
+              Precision Printing
+            </h3>
+            <p class="text-gray-400 leading-relaxed">
+              Heat-pressed names and numbers that last as long as your legacy
+            </p>
+            <div class="mt-6">
+              <span
+                class="inline-block bg-primary-yellow text-black text-sm font-bold px-3 py-1 rounded-full"
+              >
+                LIFETIME DURABLE
+              </span>
             </div>
           </div>
 
-          <div class="bg-white rounded-lg shadow-lg overflow-hidden hover-zoom">
-            <img
-              src="/assets/images/1e7960bc-281a-4831-8d79-8c6ddd920051.JPG"
-              alt="Basketball Kit"
-              class="w-full h-64 object-cover"
-              loading="lazy"
-            />
-            <div class="p-6">
-              <h3 class="text-xl font-bold mb-2">Basketball Kit</h3>
-              <p class="text-silver-gray mb-4">
-                High-performance basketball uniform
+          <div
+            class="bg-dark-gradient rounded-2xl p-8 text-center card-hover border border-gray-700"
+          >
+            <div class="relative mb-6">
+              <div
+                class="w-20 h-20 bg-energy-gradient rounded-2xl flex items-center justify-center mx-auto relative"
+              >
+                <span class="text-3xl">🚀</span>
+                <div
+                  class="absolute -inset-1 bg-fire-orange opacity-30 rounded-2xl animate-glow"
+                ></div>
+              </div>
+            </div>
+            <h3 class="text-2xl font-bold text-white mb-4">Lightning Fast</h3>
+            <p class="text-gray-400 leading-relaxed">
+              7-10 day delivery so your team is ready when it matters most
+            </p>
+            <div class="mt-6">
+              <span
+                class="inline-block bg-electric-blue text-white text-sm font-bold px-3 py-1 rounded-full"
+              >
+                EXPRESS SERVICE
+              </span>
+            </div>
+          </div>
+
+          <div
+            class="bg-dark-gradient rounded-2xl p-8 text-center card-hover border border-gray-700"
+          >
+            <div class="relative mb-6">
+              <div
+                class="w-20 h-20 bg-energy-gradient rounded-2xl flex items-center justify-center mx-auto relative"
+              >
+                <span class="text-3xl">💰</span>
+                <div
+                  class="absolute -inset-1 bg-neon-green opacity-30 rounded-2xl animate-glow"
+                ></div>
+              </div>
+            </div>
+            <h3 class="text-2xl font-bold text-white mb-4">Team Value</h3>
+            <p class="text-gray-400 leading-relaxed">
+              Bulk discounts that make elite quality accessible for every team
+            </p>
+            <div class="mt-6">
+              <span
+                class="inline-block bg-fire-orange text-white text-sm font-bold px-3 py-1 rounded-full"
+              >
+                BULK SAVINGS
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Call to Action Strip -->
+        <div class="mt-16 text-center">
+          <div
+            class="inline-flex items-center bg-dark-gradient rounded-full p-2 border border-gray-600"
+          >
+            <div class="bg-energy-gradient rounded-full p-4 mr-4">
+              <span class="text-2xl">🏆</span>
+            </div>
+            <div class="text-left">
+              <p class="text-white font-bold text-lg">
+                Ready to gear up your team?
               </p>
-              <div class="flex justify-between items-center">
-                <span class="text-2xl font-bold text-primary-yellow"
-                  >PKR 2,800</span
-                >
-                <button class="btn-primary">View Details</button>
-              </div>
+              <p class="text-primary-yellow text-sm">
+                Join 500+ teams who trust us
+              </p>
             </div>
-          </div>
-
-          <div class="bg-white rounded-lg shadow-lg overflow-hidden hover-zoom">
-            <img
-              src="/assets/images/20613a19-eee7-47e0-acad-6c1f3181d65b.JPG"
-              alt="Training Kit"
-              class="w-full h-64 object-cover"
-              loading="lazy"
-            />
-            <div class="p-6">
-              <h3 class="text-xl font-bold mb-2">Training Kit</h3>
-              <p class="text-silver-gray mb-4">Comfortable training wear</p>
-              <div class="flex justify-between items-center">
-                <span class="text-2xl font-bold text-primary-yellow"
-                  >PKR 2,000</span
-                >
-                <button class="btn-primary">View Details</button>
-              </div>
-            </div>
+            <a
+              href="#contact"
+              class="btn-modern bg-primary-yellow text-black font-black py-3 px-8 rounded-full ml-4"
+            >
+              START NOW
+            </a>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Sports Categories -->
-    <section class="py-16 bg-gray-50">
-      <div class="container mx-auto px-4">
-        <h2 class="text-4xl font-bold text-center mb-12 font-heading">
-          Sports Categories
-        </h2>
-        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
+    <!-- Elite Gear Showcase -->
+    <section
+      id="kits"
+      class="py-20 bg-gradient-to-br from-white to-gray-50 relative overflow-hidden"
+    >
+      <!-- Background Elements -->
+      <div
+        class="absolute top-20 right-10 w-64 h-64 bg-primary-yellow opacity-5 rounded-full animate-pulse-slow"
+      ></div>
+      <div
+        class="absolute bottom-20 left-10 w-48 h-48 bg-electric-blue opacity-5 rounded-full animate-pulse-slow animation-delay-1000"
+      ></div>
+
+      <div class="container mx-auto px-6 relative z-10">
+        <div class="text-center mb-16">
+          <div
+            class="inline-block bg-dark-charcoal text-primary-yellow px-6 py-2 rounded-full text-sm font-bold uppercase tracking-wider mb-4"
+          >
+            🔥 HOT GEAR
+          </div>
+          <h2
+            class="text-5xl md:text-6xl font-black font-display text-dark-charcoal mb-6"
+          >
+            GEAR UP &
+            <span class="text-primary-yellow">DOMINATE</span>
+          </h2>
+          <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+            Professional-grade sports kits engineered for peak performance.
+            <span class="text-dark-charcoal font-semibold"
+              >Choose your weapon.</span
+            >
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <!-- Cricket Kit -->
+          <div
+            class="group bg-white rounded-3xl overflow-hidden shadow-xl card-hover border border-gray-200"
+          >
+            <div class="relative overflow-hidden">
+              <img
+                src="/assets/images/042661c1-4ad3-40b5-8ddd-f536020fa179.JPG"
+                alt="Elite Cricket Kit"
+                class="w-full h-72 object-cover transition-transform duration-700 group-hover:scale-110"
+                loading="lazy"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+              ></div>
+              <div class="absolute top-4 left-4">
+                <span
+                  class="bg-neon-green text-black text-xs font-black px-3 py-1 rounded-full uppercase"
+                >
+                  BATTING READY
+                </span>
+              </div>
+              <div class="absolute top-4 right-4">
+                <span
+                  class="bg-fire-orange text-white text-xs font-black px-3 py-1 rounded-full"
+                >
+                  PRO GRADE
+                </span>
+              </div>
+            </div>
+            <div class="p-6">
+              <div class="mb-4">
+                <h3
+                  class="text-2xl font-black text-dark-charcoal mb-2 group-hover:text-primary-yellow transition-colors"
+                >
+                  ELITE CRICKET KIT
+                </h3>
+                <p class="text-gray-600 text-sm leading-relaxed">
+                  Premium whites with reinforced padding. Built for the crease.
+                </p>
+              </div>
+              <div class="flex justify-between items-end">
+                <div>
+                  <div class="text-3xl font-black text-primary-yellow mb-1">
+                    PKR 2,500
+                  </div>
+                  <div class="text-sm text-gray-500 line-through">
+                    PKR 3,200
+                  </div>
+                </div>
+                <button
+                  class="btn-modern bg-dark-charcoal text-white font-black py-3 px-6 rounded-xl group/btn"
+                >
+                  <span class="group-hover/btn:hidden">ADD</span>
+                  <span class="hidden group-hover/btn:inline">⚡</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Football Kit -->
+          <div
+            class="group bg-white rounded-3xl overflow-hidden shadow-xl card-hover border border-gray-200"
+          >
+            <div class="relative overflow-hidden">
+              <img
+                src="/assets/images/069eba1d-2ae3-4bed-9e25-332fdc3fb072.JPG"
+                alt="Pro Football Kit"
+                class="w-full h-72 object-cover transition-transform duration-700 group-hover:scale-110"
+                loading="lazy"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+              ></div>
+              <div class="absolute top-4 left-4">
+                <span
+                  class="bg-electric-blue text-white text-xs font-black px-3 py-1 rounded-full uppercase"
+                >
+                  PITCH READY
+                </span>
+              </div>
+              <div class="absolute top-4 right-4">
+                <span
+                  class="bg-primary-yellow text-black text-xs font-black px-3 py-1 rounded-full"
+                >
+                  ELITE
+                </span>
+              </div>
+            </div>
+            <div class="p-6">
+              <div class="mb-4">
+                <h3
+                  class="text-2xl font-black text-dark-charcoal mb-2 group-hover:text-electric-blue transition-colors"
+                >
+                  PRO FOOTBALL KIT
+                </h3>
+                <p class="text-gray-600 text-sm leading-relaxed">
+                  Lightweight, breathable jersey with superior mobility.
+                </p>
+              </div>
+              <div class="flex justify-between items-end">
+                <div>
+                  <div class="text-3xl font-black text-electric-blue mb-1">
+                    PKR 3,200
+                  </div>
+                  <div class="text-sm text-gray-500 line-through">
+                    PKR 4,000
+                  </div>
+                </div>
+                <button
+                  class="btn-modern bg-dark-charcoal text-white font-black py-3 px-6 rounded-xl group/btn"
+                >
+                  <span class="group-hover/btn:hidden">ADD</span>
+                  <span class="hidden group-hover/btn:inline">⚡</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Basketball Kit -->
+          <div
+            class="group bg-white rounded-3xl overflow-hidden shadow-xl card-hover border border-gray-200"
+          >
+            <div class="relative overflow-hidden">
+              <img
+                src="/assets/images/1e7960bc-281a-4831-8d79-8c6ddd920051.JPG"
+                alt="Slam Basketball Kit"
+                class="w-full h-72 object-cover transition-transform duration-700 group-hover:scale-110"
+                loading="lazy"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+              ></div>
+              <div class="absolute top-4 left-4">
+                <span
+                  class="bg-fire-orange text-white text-xs font-black px-3 py-1 rounded-full uppercase"
+                >
+                  COURT KING
+                </span>
+              </div>
+              <div class="absolute top-4 right-4">
+                <span
+                  class="bg-neon-green text-black text-xs font-black px-3 py-1 rounded-full"
+                >
+                  SLAM READY
+                </span>
+              </div>
+            </div>
+            <div class="p-6">
+              <div class="mb-4">
+                <h3
+                  class="text-2xl font-black text-dark-charcoal mb-2 group-hover:text-fire-orange transition-colors"
+                >
+                  SLAM BASKETBALL
+                </h3>
+                <p class="text-gray-600 text-sm leading-relaxed">
+                  Maximum mobility with sweat-wicking technology.
+                </p>
+              </div>
+              <div class="flex justify-between items-end">
+                <div>
+                  <div class="text-3xl font-black text-fire-orange mb-1">
+                    PKR 2,800
+                  </div>
+                  <div class="text-sm text-gray-500 line-through">
+                    PKR 3,600
+                  </div>
+                </div>
+                <button
+                  class="btn-modern bg-dark-charcoal text-white font-black py-3 px-6 rounded-xl group/btn"
+                >
+                  <span class="group-hover/btn:hidden">ADD</span>
+                  <span class="hidden group-hover/btn:inline">⚡</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Training Kit -->
+          <div
+            class="group bg-white rounded-3xl overflow-hidden shadow-xl card-hover border border-gray-200"
+          >
+            <div class="relative overflow-hidden">
+              <img
+                src="/assets/images/20613a19-eee7-47e0-acad-6c1f3181d65b.JPG"
+                alt="Training Kit"
+                class="w-full h-72 object-cover transition-transform duration-700 group-hover:scale-110"
+                loading="lazy"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+              ></div>
+              <div class="absolute top-4 left-4">
+                <span
+                  class="bg-primary-yellow text-black text-xs font-black px-3 py-1 rounded-full uppercase"
+                >
+                  ALL DAY
+                </span>
+              </div>
+              <div class="absolute top-4 right-4">
+                <span
+                  class="bg-dark-charcoal text-white text-xs font-black px-3 py-1 rounded-full"
+                >
+                  VERSATILE
+                </span>
+              </div>
+            </div>
+            <div class="p-6">
+              <div class="mb-4">
+                <h3
+                  class="text-2xl font-black text-dark-charcoal mb-2 group-hover:text-neon-green transition-colors"
+                >
+                  TRAINING KIT
+                </h3>
+                <p class="text-gray-600 text-sm leading-relaxed">
+                  Versatile athletic wear for every training session.
+                </p>
+              </div>
+              <div class="flex justify-between items-end">
+                <div>
+                  <div class="text-3xl font-black text-neon-green mb-1">
+                    PKR 2,000
+                  </div>
+                  <div class="text-sm text-gray-500 line-through">
+                    PKR 2,800
+                  </div>
+                </div>
+                <button
+                  class="btn-modern bg-dark-charcoal text-white font-black py-3 px-6 rounded-xl group/btn"
+                >
+                  <span class="group-hover/btn:hidden">ADD</span>
+                  <span class="hidden group-hover/btn:inline">⚡</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bottom CTA -->
+        <div class="text-center mt-16">
+          <p class="text-gray-600 mb-6">
+            Need bulk order? Custom team pricing available
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <a
+              href="#customize"
+              class="btn-modern bg-primary-yellow text-black font-black py-4 px-8 rounded-full"
+            >
+              🎨 CUSTOMIZE ALL
+            </a>
+            <a
+              href="#contact"
+              class="btn-modern bg-dark-charcoal text-white font-black py-4 px-8 rounded-full"
+            >
+              💬 BULK QUOTE
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sports Arena -->
+    <section
+      class="py-20 bg-gradient-to-br from-gray-50 to-white relative overflow-hidden"
+    >
+      <!-- Background Pattern -->
+      <div class="absolute inset-0 opacity-30">
+        <div
+          class="absolute top-10 left-10 w-32 h-32 border-4 border-primary-yellow rounded-full animate-spin"
+          style="animation-duration: 30s"
+        ></div>
+        <div
+          class="absolute bottom-10 right-10 w-24 h-24 border-4 border-electric-blue rounded-full animate-bounce"
+          style="animation-duration: 4s"
+        ></div>
+      </div>
+
+      <div class="container mx-auto px-6 relative z-10">
+        <div class="text-center mb-16">
+          <div
+            class="inline-block bg-fire-orange text-white px-6 py-2 rounded-full text-sm font-black uppercase tracking-wider mb-4"
+          >
+            ⚡ CHOOSE YOUR ARENA
+          </div>
+          <h2
+            class="text-5xl md:text-6xl font-black font-display text-dark-charcoal mb-6"
+          >
+            DOMINATE
+            <span class="text-fire-orange block">EVERY SPORT</span>
+          </h2>
+          <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+            From the cricket pitch to the basketball court, we've got the
+            perfect gear for every athlete.
+            <span class="text-dark-charcoal font-semibold"
+              >Pick your battlefield.</span
+            >
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Cricket -->
           <a
             href="#cricket"
-            class="bg-white rounded-lg shadow-lg p-6 text-center hover:shadow-xl transition-shadow duration-300"
+            class="group bg-white rounded-3xl p-8 text-center card-hover shadow-xl border border-gray-200 relative overflow-hidden"
           >
             <div
-              class="w-16 h-16 bg-primary-yellow rounded-full flex items-center justify-center mx-auto mb-4"
-            >
-              <span class="text-2xl">🏏</span>
+              class="absolute top-0 right-0 w-20 h-20 bg-primary-yellow opacity-10 rounded-full transform translate-x-10 -translate-y-10 group-hover:scale-150 transition-transform duration-500"
+            ></div>
+            <div class="relative z-10">
+              <div
+                class="w-24 h-24 bg-gradient-to-br from-primary-yellow to-fire-orange rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg"
+              >
+                <span class="text-4xl">🏏</span>
+              </div>
+              <h3
+                class="text-3xl font-black text-dark-charcoal mb-4 group-hover:text-primary-yellow transition-colors"
+              >
+                CRICKET
+              </h3>
+              <p class="text-gray-600 mb-6 leading-relaxed">
+                Elite whites and colored kits for Test matches to T20s. Built
+                for every format.
+              </p>
+              <div class="flex justify-center space-x-4 text-sm font-bold">
+                <span class="bg-neon-green text-black px-3 py-1 rounded-full"
+                  >TEST READY</span
+                >
+                <span class="bg-electric-blue text-white px-3 py-1 rounded-full"
+                  >T20 GEARED</span
+                >
+              </div>
             </div>
-            <h3 class="font-bold text-lg">Cricket</h3>
           </a>
 
+          <!-- Football -->
           <a
             href="#football"
-            class="bg-white rounded-lg shadow-lg p-6 text-center hover:shadow-xl transition-shadow duration-300"
+            class="group bg-white rounded-3xl p-8 text-center card-hover shadow-xl border border-gray-200 relative overflow-hidden"
           >
             <div
-              class="w-16 h-16 bg-primary-yellow rounded-full flex items-center justify-center mx-auto mb-4"
-            >
-              <span class="text-2xl">⚽</span>
+              class="absolute top-0 right-0 w-20 h-20 bg-electric-blue opacity-10 rounded-full transform translate-x-10 -translate-y-10 group-hover:scale-150 transition-transform duration-500"
+            ></div>
+            <div class="relative z-10">
+              <div
+                class="w-24 h-24 bg-gradient-to-br from-electric-blue to-primary-yellow rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg"
+              >
+                <span class="text-4xl">⚽</span>
+              </div>
+              <h3
+                class="text-3xl font-black text-dark-charcoal mb-4 group-hover:text-electric-blue transition-colors"
+              >
+                FOOTBALL
+              </h3>
+              <p class="text-gray-600 mb-6 leading-relaxed">
+                Lightweight, breathable jerseys that move with you. From
+                training to finals.
+              </p>
+              <div class="flex justify-center space-x-4 text-sm font-bold">
+                <span class="bg-fire-orange text-white px-3 py-1 rounded-full"
+                  >MATCH DAY</span
+                >
+                <span
+                  class="bg-primary-yellow text-black px-3 py-1 rounded-full"
+                  >TRAINING</span
+                >
+              </div>
             </div>
-            <h3 class="font-bold text-lg">Football</h3>
           </a>
 
+          <!-- Basketball -->
           <a
             href="#basketball"
-            class="bg-white rounded-lg shadow-lg p-6 text-center hover:shadow-xl transition-shadow duration-300"
+            class="group bg-white rounded-3xl p-8 text-center card-hover shadow-xl border border-gray-200 relative overflow-hidden"
           >
             <div
-              class="w-16 h-16 bg-primary-yellow rounded-full flex items-center justify-center mx-auto mb-4"
-            >
-              <span class="text-2xl">🏀</span>
+              class="absolute top-0 right-0 w-20 h-20 bg-fire-orange opacity-10 rounded-full transform translate-x-10 -translate-y-10 group-hover:scale-150 transition-transform duration-500"
+            ></div>
+            <div class="relative z-10">
+              <div
+                class="w-24 h-24 bg-gradient-to-br from-fire-orange to-neon-green rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg"
+              >
+                <span class="text-4xl">🏀</span>
+              </div>
+              <h3
+                class="text-3xl font-black text-dark-charcoal mb-4 group-hover:text-fire-orange transition-colors"
+              >
+                BASKETBALL
+              </h3>
+              <p class="text-gray-600 mb-6 leading-relaxed">
+                Maximum mobility with superior sweat-wicking. Slam with
+                confidence.
+              </p>
+              <div class="flex justify-center space-x-4 text-sm font-bold">
+                <span class="bg-dark-charcoal text-white px-3 py-1 rounded-full"
+                  >COURT KING</span
+                >
+                <span class="bg-neon-green text-black px-3 py-1 rounded-full"
+                  >SLAM READY</span
+                >
+              </div>
             </div>
-            <h3 class="font-bold text-lg">Basketball</h3>
           </a>
 
+          <!-- Training -->
           <a
             href="#training"
-            class="bg-white rounded-lg shadow-lg p-6 text-center hover:shadow-xl transition-shadow duration-300"
+            class="group bg-white rounded-3xl p-8 text-center card-hover shadow-xl border border-gray-200 relative overflow-hidden"
           >
             <div
-              class="w-16 h-16 bg-primary-yellow rounded-full flex items-center justify-center mx-auto mb-4"
-            >
-              <span class="text-2xl">💪</span>
+              class="absolute top-0 right-0 w-20 h-20 bg-neon-green opacity-10 rounded-full transform translate-x-10 -translate-y-10 group-hover:scale-150 transition-transform duration-500"
+            ></div>
+            <div class="relative z-10">
+              <div
+                class="w-24 h-24 bg-gradient-to-br from-neon-green to-electric-blue rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg"
+              >
+                <span class="text-4xl">💪</span>
+              </div>
+              <h3
+                class="text-3xl font-black text-dark-charcoal mb-4 group-hover:text-neon-green transition-colors"
+              >
+                TRAINING
+              </h3>
+              <p class="text-gray-600 mb-6 leading-relaxed">
+                Versatile athletic wear that adapts to every workout. All-day
+                comfort.
+              </p>
+              <div class="flex justify-center space-x-4 text-sm font-bold">
+                <span
+                  class="bg-primary-yellow text-black px-3 py-1 rounded-full"
+                  >ALL-DAY</span
+                >
+                <span class="bg-dark-charcoal text-white px-3 py-1 rounded-full"
+                  >VERSATILE</span
+                >
+              </div>
             </div>
-            <h3 class="font-bold text-lg">Training</h3>
           </a>
 
+          <!-- Hockey -->
           <a
-            href="#others"
-            class="bg-white rounded-lg shadow-lg p-6 text-center hover:shadow-xl transition-shadow duration-300"
+            href="#hockey"
+            class="group bg-white rounded-3xl p-8 text-center card-hover shadow-xl border border-gray-200 relative overflow-hidden"
           >
             <div
-              class="w-16 h-16 bg-primary-yellow rounded-full flex items-center justify-center mx-auto mb-4"
-            >
-              <span class="text-2xl">🎯</span>
+              class="absolute top-0 right-0 w-20 h-20 bg-primary-yellow opacity-10 rounded-full transform translate-x-10 -translate-y-10 group-hover:scale-150 transition-transform duration-500"
+            ></div>
+            <div class="relative z-10">
+              <div
+                class="w-24 h-24 bg-gradient-to-br from-primary-yellow to-electric-blue rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg"
+              >
+                <span class="text-4xl">🏒</span>
+              </div>
+              <h3
+                class="text-3xl font-black text-dark-charcoal mb-4 group-hover:text-primary-yellow transition-colors"
+              >
+                HOCKEY
+              </h3>
+              <p class="text-gray-600 mb-6 leading-relaxed">
+                Durable, protective gear for the ice. Built for speed and
+                impact.
+              </p>
+              <div class="flex justify-center space-x-4 text-sm font-bold">
+                <span class="bg-electric-blue text-white px-3 py-1 rounded-full"
+                  >ICE READY</span
+                >
+                <span class="bg-fire-orange text-white px-3 py-1 rounded-full"
+                  >PROTECTED</span
+                >
+              </div>
             </div>
-            <h3 class="font-bold text-lg">Others</h3>
+          </a>
+
+          <!-- Custom -->
+          <a
+            href="#custom"
+            class="group bg-gradient-to-br from-dark-charcoal to-gray-800 rounded-3xl p-8 text-center card-hover shadow-xl relative overflow-hidden"
+          >
+            <div
+              class="absolute top-0 right-0 w-20 h-20 bg-energy-gradient opacity-20 rounded-full transform translate-x-10 -translate-y-10 group-hover:scale-150 transition-transform duration-500"
+            ></div>
+            <div class="relative z-10">
+              <div
+                class="w-24 h-24 bg-energy-gradient rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg"
+              >
+                <span class="text-4xl">🎨</span>
+              </div>
+              <h3
+                class="text-3xl font-black text-white mb-4 group-hover:text-primary-yellow transition-colors"
+              >
+                CUSTOM
+              </h3>
+              <p class="text-gray-300 mb-6 leading-relaxed">
+                Your vision, our expertise. Create something unique for your
+                team.
+              </p>
+              <div class="flex justify-center space-x-4 text-sm font-bold">
+                <span
+                  class="bg-primary-yellow text-black px-3 py-1 rounded-full"
+                  >UNLIMITED</span
+                >
+                <span class="bg-neon-green text-black px-3 py-1 rounded-full"
+                  >DESIGNS</span
+                >
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <!-- Bottom CTA -->
+        <div class="text-center mt-16">
+          <p class="text-gray-600 mb-6">
+            Don't see your sport? We do custom designs for any athletic pursuit
+          </p>
+          <a
+            href="#contact"
+            class="btn-modern bg-energy-gradient text-white font-black py-4 px-8 rounded-full"
+          >
+            🚀 CUSTOM SPORT GEAR
           </a>
         </div>
       </div>
     </section>
 
-    <!-- Customization Section -->
-    <section id="customize" class="py-16">
-      <div class="container mx-auto px-4">
-        <div class="max-w-4xl mx-auto text-center">
-          <h2 class="text-4xl font-bold mb-8 font-heading">
-            Your Kit, Your Identity
+    <!-- Customization Studio -->
+    <section
+      id="customize"
+      class="py-20 bg-gradient-to-br from-gray-900 via-dark-charcoal to-gray-900 relative overflow-hidden"
+    >
+      <!-- Background Elements -->
+      <div class="absolute inset-0">
+        <div
+          class="absolute top-20 left-20 w-64 h-64 bg-primary-yellow opacity-5 rounded-full animate-pulse-slow"
+        ></div>
+        <div
+          class="absolute bottom-20 right-20 w-48 h-48 bg-electric-blue opacity-5 rounded-full animate-pulse-slow animation-delay-1000"
+        ></div>
+        <div
+          class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-fire-orange opacity-3 rounded-full animate-pulse-slow animation-delay-2000"
+        ></div>
+      </div>
+
+      <div class="container mx-auto px-6 relative z-10">
+        <div class="text-center mb-16">
+          <div
+            class="inline-block bg-neon-green text-black px-6 py-2 rounded-full text-sm font-black uppercase tracking-wider mb-4"
+          >
+            ⚡ DESIGN STUDIO
+          </div>
+          <h2
+            class="text-5xl md:text-6xl font-black font-display text-white mb-6"
+          >
+            YOUR VISION,
+            <span class="text-primary-yellow block">OUR CRAFT</span>
           </h2>
-          <p class="text-xl text-silver-gray mb-12">
-            Create unique team uniforms that reflect your style and spirit
+          <p class="text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
+            Transform your team's identity with unlimited customization options.
+            <span class="text-primary-yellow font-semibold"
+              >From concept to championship.</span
+            >
           </p>
+        </div>
 
-          <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
-            <div class="text-center">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+          <!-- Colors -->
+          <div
+            class="bg-dark-gradient rounded-3xl p-8 text-center card-hover border border-gray-600 group"
+          >
+            <div class="relative mb-6">
               <div
-                class="w-20 h-20 bg-primary-yellow rounded-full flex items-center justify-center mx-auto mb-4"
+                class="w-24 h-24 bg-gradient-to-br from-primary-yellow via-electric-blue to-fire-orange rounded-2xl flex items-center justify-center mx-auto relative group-hover:scale-110 transition-transform duration-300"
               >
-                <span class="text-3xl">🎨</span>
+                <span class="text-4xl">🎨</span>
+                <div
+                  class="absolute -inset-2 bg-primary-yellow opacity-20 rounded-2xl animate-glow"
+                ></div>
               </div>
-              <h3 class="font-bold mb-2">Custom Colors</h3>
-              <p class="text-sm text-silver-gray">
-                Choose from unlimited color combinations
-              </p>
             </div>
-
-            <div class="text-center">
-              <div
-                class="w-20 h-20 bg-primary-yellow rounded-full flex items-center justify-center mx-auto mb-4"
-              >
-                <span class="text-3xl">🔤</span>
-              </div>
-              <h3 class="font-bold mb-2">Font Styles</h3>
-              <p class="text-sm text-silver-gray">
-                Multiple fonts for names and numbers
-              </p>
-            </div>
-
-            <div class="text-center">
-              <div
-                class="w-20 h-20 bg-primary-yellow rounded-full flex items-center justify-center mx-auto mb-4"
-              >
-                <span class="text-3xl">📝</span>
-              </div>
-              <h3 class="font-bold mb-2">Player Names</h3>
-              <p class="text-sm text-silver-gray">
-                Add individual player names
-              </p>
-            </div>
-
-            <div class="text-center">
-              <div
-                class="w-20 h-20 bg-primary-yellow rounded-full flex items-center justify-center mx-auto mb-4"
-              >
-                <span class="text-3xl">🔢</span>
-              </div>
-              <h3 class="font-bold mb-2">Numbers</h3>
-              <p class="text-sm text-silver-gray">
-                Professional numbering system
-              </p>
+            <h3 class="text-2xl font-black text-white mb-4">
+              UNLIMITED COLORS
+            </h3>
+            <p class="text-gray-400 leading-relaxed mb-4">
+              Every shade, every combination. Your team's colors, exactly as you
+              envision them.
+            </p>
+            <div
+              class="bg-primary-yellow text-black text-sm font-bold px-4 py-2 rounded-full"
+            >
+              16M+ POSSIBILITIES
             </div>
           </div>
 
-          <div class="mt-12">
-            <a href="#contact" class="btn-primary text-lg px-8 py-4"
-              >Start Customizing</a
+          <!-- Typography -->
+          <div
+            class="bg-dark-gradient rounded-3xl p-8 text-center card-hover border border-gray-600 group"
+          >
+            <div class="relative mb-6">
+              <div
+                class="w-24 h-24 bg-gradient-to-br from-electric-blue via-neon-green to-primary-yellow rounded-2xl flex items-center justify-center mx-auto relative group-hover:scale-110 transition-transform duration-300"
+              >
+                <span class="text-4xl">🔤</span>
+                <div
+                  class="absolute -inset-2 bg-electric-blue opacity-20 rounded-2xl animate-glow"
+                ></div>
+              </div>
+            </div>
+            <h3 class="text-2xl font-black text-white mb-4">PREMIUM FONTS</h3>
+            <p class="text-gray-400 leading-relaxed mb-4">
+              Professional typography that makes your names and numbers pop off
+              the jersey.
+            </p>
+            <div
+              class="bg-electric-blue text-white text-sm font-bold px-4 py-2 rounded-full"
             >
+              50+ FONT STYLES
+            </div>
+          </div>
+
+          <!-- Names -->
+          <div
+            class="bg-dark-gradient rounded-3xl p-8 text-center card-hover border border-gray-600 group"
+          >
+            <div class="relative mb-6">
+              <div
+                class="w-24 h-24 bg-gradient-to-br from-fire-orange via-primary-yellow to-neon-green rounded-2xl flex items-center justify-center mx-auto relative group-hover:scale-110 transition-transform duration-300"
+              >
+                <span class="text-4xl">📝</span>
+                <div
+                  class="absolute -inset-2 bg-fire-orange opacity-20 rounded-2xl animate-glow"
+                ></div>
+              </div>
+            </div>
+            <h3 class="text-2xl font-black text-white mb-4">PLAYER NAMES</h3>
+            <p class="text-gray-400 leading-relaxed mb-4">
+              Every player gets their moment. Custom names that tell your team's
+              story.
+            </p>
+            <div
+              class="bg-fire-orange text-white text-sm font-bold px-4 py-2 rounded-full"
+            >
+              PERSONALIZED
+            </div>
+          </div>
+
+          <!-- Numbers -->
+          <div
+            class="bg-dark-gradient rounded-3xl p-8 text-center card-hover border border-gray-600 group"
+          >
+            <div class="relative mb-6">
+              <div
+                class="w-24 h-24 bg-gradient-to-br from-neon-green via-electric-blue to-fire-orange rounded-2xl flex items-center justify-center mx-auto relative group-hover:scale-110 transition-transform duration-300"
+              >
+                <span class="text-4xl">🔢</span>
+                <div
+                  class="absolute -inset-2 bg-neon-green opacity-20 rounded-2xl animate-glow"
+                ></div>
+              </div>
+            </div>
+            <h3 class="text-2xl font-black text-white mb-4">PRO NUMBERS</h3>
+            <p class="text-gray-400 leading-relaxed mb-4">
+              Heat-pressed, professional-grade numbering that lasts as long as
+              the jersey.
+            </p>
+            <div
+              class="bg-neon-green text-black text-sm font-bold px-4 py-2 rounded-full"
+            >
+              LIFETIME GUARANTEE
+            </div>
+          </div>
+        </div>
+
+        <!-- Process Steps -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+          <div class="text-center">
+            <div
+              class="w-16 h-16 bg-primary-yellow rounded-full flex items-center justify-center mx-auto mb-4 text-2xl font-black text-black"
+            >
+              1
+            </div>
+            <h4 class="text-xl font-bold text-white mb-2">UPLOAD DESIGN</h4>
+            <p class="text-gray-400">
+              Share your vision or let our designers create magic
+            </p>
+          </div>
+          <div class="text-center">
+            <div
+              class="w-16 h-16 bg-electric-blue rounded-full flex items-center justify-center mx-auto mb-4 text-2xl font-black text-white"
+            >
+              2
+            </div>
+            <h4 class="text-xl font-bold text-white mb-2">CUSTOMIZE ALL</h4>
+            <p class="text-gray-400">
+              Colors, fonts, names, numbers - make it yours
+            </p>
+          </div>
+          <div class="text-center">
+            <div
+              class="w-16 h-16 bg-neon-green rounded-full flex items-center justify-center mx-auto mb-4 text-2xl font-black text-black"
+            >
+              3
+            </div>
+            <h4 class="text-xl font-bold text-white mb-2">DOMINATE</h4>
+            <p class="text-gray-400">
+              Receive your custom kits ready for victory
+            </p>
+          </div>
+        </div>
+
+        <!-- CTA -->
+        <div class="text-center">
+          <div
+            class="inline-flex items-center bg-dark-gradient rounded-2xl p-8 border border-gray-600"
+          >
+            <div class="bg-energy-gradient rounded-xl p-4 mr-6">
+              <span class="text-3xl">🚀</span>
+            </div>
+            <div class="text-left">
+              <p class="text-white font-bold text-xl mb-2">
+                Ready to create something legendary?
+              </p>
+              <p class="text-primary-yellow text-sm mb-4">
+                Free design consultation • Unlimited revisions
+              </p>
+            </div>
+            <a
+              href="#contact"
+              class="btn-modern bg-primary-yellow text-black font-black py-4 px-8 rounded-xl ml-6"
+            >
+              START DESIGNING
+            </a>
           </div>
         </div>
       </div>
@@ -943,77 +1792,116 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-dark-charcoal text-white py-12">
-      <div class="container mx-auto px-4">
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+    <footer class="bg-dark-gradient text-white py-16 relative overflow-hidden">
+      <!-- Background Elements -->
+      <div class="absolute inset-0 opacity-20">
+        <div
+          class="absolute top-10 left-10 w-32 h-32 border-2 border-primary-yellow rounded-full animate-spin"
+          style="animation-duration: 40s"
+        ></div>
+        <div
+          class="absolute bottom-10 right-10 w-24 h-24 border-2 border-electric-blue rounded-full animate-bounce"
+          style="animation-duration: 5s"
+        ></div>
+      </div>
+
+      <div class="container mx-auto px-6 relative z-10">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           <!-- Logo and Info -->
-          <div class="col-span-1 md:col-span-2">
-            <div class="flex items-center mb-4">
-              <img
-                src="/logo.png"
-                alt="Kit World Sports Logo"
-                class="h-10 w-10 rounded-lg"
-              />
-              <span class="ml-3 text-xl font-bold font-heading"
-                >Kit World Sports</span
-              >
+          <div class="lg:col-span-2">
+            <div class="flex items-center mb-6">
+              <div class="relative">
+                <img
+                  src="/logo.png"
+                  alt="Kit World Sports Logo"
+                  class="h-16 w-16 rounded-2xl shadow-lg"
+                />
+                <div
+                  class="absolute -inset-2 bg-primary-yellow opacity-20 rounded-2xl animate-glow"
+                ></div>
+              </div>
+              <div class="ml-4">
+                <div
+                  class="text-2xl font-black font-heading tracking-tight text-white"
+                >
+                  KIT WORLD
+                </div>
+                <div
+                  class="text-primary-yellow font-bold tracking-widest text-sm"
+                >
+                  SPORTS
+                </div>
+              </div>
             </div>
-            <p class="text-silver-gray mb-4">
-              Premium custom sports kits for teams and individuals. Play with
-              Passion.
+            <p class="text-gray-300 mb-6 text-lg leading-relaxed">
+              Elite custom sports kits engineered for champions. Gear up, stand
+              out, dominate the game.
+              <span class="text-primary-yellow font-semibold"
+                >Play with Passion.</span
+              >
             </p>
             <div class="flex space-x-4">
               <a
                 href="#"
-                class="text-silver-gray hover:text-primary-yellow transition-colors duration-300"
+                class="w-12 h-12 bg-gray-700 rounded-xl flex items-center justify-center hover:bg-primary-yellow hover:text-black transition-all duration-300 group"
               >
                 <span class="text-xl">📘</span>
               </a>
               <a
                 href="#"
-                class="text-silver-gray hover:text-primary-yellow transition-colors duration-300"
+                class="w-12 h-12 bg-gray-700 rounded-xl flex items-center justify-center hover:bg-electric-blue hover:text-white transition-all duration-300 group"
               >
                 <span class="text-xl">📷</span>
               </a>
               <a
                 href="#"
-                class="text-silver-gray hover:text-primary-yellow transition-colors duration-300"
+                class="w-12 h-12 bg-gray-700 rounded-xl flex items-center justify-center hover:bg-neon-green hover:text-black transition-all duration-300 group"
               >
                 <span class="text-xl">🐦</span>
+              </a>
+              <a
+                href="https://wa.me/923346688701"
+                class="w-12 h-12 bg-green-600 rounded-xl flex items-center justify-center hover:bg-green-500 transition-all duration-300 group"
+              >
+                <span class="text-xl">💬</span>
               </a>
             </div>
           </div>
 
           <!-- Quick Links -->
           <div>
-            <h4 class="font-bold mb-4">Quick Links</h4>
-            <ul class="space-y-2 text-silver-gray">
+            <h4
+              class="font-black mb-6 text-white text-lg uppercase tracking-wider"
+            >
+              Navigate
+            </h4>
+            <ul class="space-y-3">
               <li>
                 <a
                   href="#home"
-                  class="hover:text-primary-yellow transition-colors duration-300"
+                  class="text-gray-300 hover:text-primary-yellow transition-colors duration-300 font-semibold"
                   >Home</a
                 >
               </li>
               <li>
                 <a
                   href="#kits"
-                  class="hover:text-primary-yellow transition-colors duration-300"
-                  >Kits</a
+                  class="text-gray-300 hover:text-primary-yellow transition-colors duration-300 font-semibold"
+                  >Gear Up</a
                 >
               </li>
               <li>
                 <a
                   href="#customize"
-                  class="hover:text-primary-yellow transition-colors duration-300"
+                  class="text-gray-300 hover:text-primary-yellow transition-colors duration-300 font-semibold"
                   >Customize</a
                 >
               </li>
               <li>
                 <a
-                  href="#contact"
-                  class="hover:text-primary-yellow transition-colors duration-300"
-                  >Contact</a
+                  href="#teams"
+                  class="text-gray-300 hover:text-primary-yellow transition-colors duration-300 font-semibold"
+                  >Teams</a
                 >
               </li>
             </ul>
@@ -1021,20 +1909,58 @@
 
           <!-- Contact Info -->
           <div>
-            <h4 class="font-bold mb-4">Contact</h4>
-            <ul class="space-y-2 text-silver-gray">
-              <li>+92 334-6688701</li>
-              <li>+92 314-7512811</li>
-              <li>kitworldsports01@gmail.com</li>
-              <li>Sialkot, Pakistan</li>
+            <h4
+              class="font-black mb-6 text-white text-lg uppercase tracking-wider"
+            >
+              Contact
+            </h4>
+            <ul class="space-y-3">
+              <li class="flex items-center">
+                <span class="text-primary-yellow mr-3">📞</span>
+                <span class="text-gray-300">+92 334-6688701</span>
+              </li>
+              <li class="flex items-center">
+                <span class="text-primary-yellow mr-3">📞</span>
+                <span class="text-gray-300">+92 314-7512811</span>
+              </li>
+              <li class="flex items-center">
+                <span class="text-primary-yellow mr-3">✉️</span>
+                <span class="text-gray-300">kitworldsports01@gmail.com</span>
+              </li>
+              <li class="flex items-center">
+                <span class="text-primary-yellow mr-3">📍</span>
+                <span class="text-gray-300">Sialkot, Pakistan</span>
+              </li>
             </ul>
           </div>
         </div>
 
-        <div
-          class="border-t border-silver-gray mt-8 pt-8 text-center text-silver-gray"
-        >
-          <p>&copy; 2025 Kit World Sports. All rights reserved.</p>
+        <!-- Bottom Section -->
+        <div class="border-t border-gray-600 mt-12 pt-8">
+          <div class="flex flex-col md:flex-row justify-between items-center">
+            <p class="text-gray-400 font-semibold">
+              &copy; 2025 Kit World Sports. Engineered for Champions.
+            </p>
+            <div class="flex items-center mt-4 md:mt-0">
+              <div class="flex space-x-6 text-sm">
+                <a
+                  href="#"
+                  class="text-gray-400 hover:text-primary-yellow transition-colors duration-300"
+                  >Privacy Policy</a
+                >
+                <a
+                  href="#"
+                  class="text-gray-400 hover:text-primary-yellow transition-colors duration-300"
+                  >Terms of Service</a
+                >
+                <a
+                  href="#"
+                  class="text-gray-400 hover:text-primary-yellow transition-colors duration-300"
+                  >Returns</a
+                >
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </footer>
