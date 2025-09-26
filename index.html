@@ -331,7 +331,8 @@
         class="absolute inset-0 bg-gradient-to-br from-gray-900 via-blue-900 to-gray-900"
       >
         <div
-          class="absolute inset-0 bg-cover bg-center opacity-40"
+          id="dynamic-background"
+          class="absolute inset-0 bg-cover bg-center opacity-40 transition-opacity duration-1000"
           style="
             background-image: url('./assets/images/042661c1-4ad3-40b5-8ddd-f536020fa179.JPG');
           "
@@ -2025,6 +2026,70 @@
           "https://instagram.com/kitworldsports"
         ]
       }
+    </script>
+
+    <!-- Dynamic Background Images Script -->
+    <script>
+      // Array of background images from assets folder
+      const backgroundImages = [
+        './assets/images/042661c1-4ad3-40b5-8ddd-f536020fa179.JPG',
+        './assets/images/069eba1d-2ae3-4bed-9e25-332fdc3fb072.JPG',
+        './assets/images/1e7960bc-281a-4831-8d79-8c6ddd920051.JPG',
+        './assets/images/20613a19-eee7-47e0-acad-6c1f3181d65b.JPG',
+        './assets/images/2f72dba6-0809-4dfd-b469-bde31fa19cd7.JPG',
+        './assets/images/40909026-6242-40db-858c-0f0761788adf.JPG',
+        './assets/images/4e4a0648-07da-45db-9539-41146dbd8674.JPG',
+        './assets/images/51011e88-5684-4b9c-83b3-0c7964395918.JPG',
+        './assets/images/5543abf4-8bfd-451e-93ce-0641d0bcbdde.JPG',
+        './assets/images/5561abd5-98c9-42b3-aebf-a28b84e50a98.JPG',
+        './assets/images/56a25278-e4a2-42c3-b9bd-bd45d3bbc068.JPG',
+        './assets/images/5edd71f3-fa33-4330-b6bd-7c0031388a45.JPG',
+        './assets/images/80104a0f-4011-43bd-a927-57e00bcb2071.JPG',
+        './assets/images/877961f0-f920-4692-a27f-648a8fc0236a.JPG',
+        './assets/images/98efc563-9cd6-4e7d-af32-765b68addbda.JPG'
+      ];
+
+      let currentImageIndex = 0;
+      const backgroundElement = document.getElementById('dynamic-background');
+
+      // Preload images for smooth transitions
+      function preloadImages() {
+        backgroundImages.forEach(src => {
+          const img = new Image();
+          img.src = src;
+        });
+      }
+
+      // Function to change background image
+      function changeBackground() {
+        currentImageIndex = (currentImageIndex + 1) % backgroundImages.length;
+        const nextImage = backgroundImages[currentImageIndex];
+
+        // Fade out current image
+        backgroundElement.style.opacity = '0';
+
+        // Change background image after fade out
+        setTimeout(() => {
+          backgroundElement.style.backgroundImage = `url('${nextImage}')`;
+          backgroundElement.style.opacity = '0.4';
+        }, 500);
+      }
+
+      // Initialize dynamic background
+      function initDynamicBackground() {
+        preloadImages();
+
+        // Change background every 8 seconds
+        setInterval(changeBackground, 8000);
+
+        // Initial fade in
+        setTimeout(() => {
+          backgroundElement.style.opacity = '0.4';
+        }, 100);
+      }
+
+      // Start dynamic background when page loads
+      document.addEventListener('DOMContentLoaded', initDynamicBackground);
     </script>
   </body>
 </html>
