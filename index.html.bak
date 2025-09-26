@@ -330,7 +330,7 @@
         <div
           class="absolute inset-0 bg-cover bg-center opacity-40"
           style="
-            background-image: url('../assets/images/042661c1-4ad3-40b5-8ddd-f536020fa179.JPG');
+            background-image: url('./assets/images/042661c1-4ad3-40b5-8ddd-f536020fa179.JPG');
           "
         ></div>
         <div class="absolute inset-0 hero-gradient opacity-80"></div>
@@ -643,7 +643,7 @@
           >
             <div class="relative overflow-hidden">
               <img
-                src="./assets/images/042661c1-4ad3-40b5-8ddd-f536020fa179.JPG"
+                src="/assets/images/042661c1-4ad3-40b5-8ddd-f536020fa179.JPG"
                 alt="Elite Cricket Kit"
                 class="w-full h-72 object-cover transition-transform duration-700 group-hover:scale-110"
                 loading="lazy"
@@ -702,7 +702,7 @@
           >
             <div class="relative overflow-hidden">
               <img
-                src="./assets/images/069eba1d-2ae3-4bed-9e25-332fdc3fb072.JPG"
+                src="/assets/images/069eba1d-2ae3-4bed-9e25-332fdc3fb072.JPG"
                 alt="Pro Football Kit"
                 class="w-full h-72 object-cover transition-transform duration-700 group-hover:scale-110"
                 loading="lazy"
@@ -761,7 +761,7 @@
           >
             <div class="relative overflow-hidden">
               <img
-                src="./assets/images/1e7960bc-281a-4831-8d79-8c6ddd920051.JPG"
+                src="/assets/images/1e7960bc-281a-4831-8d79-8c6ddd920051.JPG"
                 alt="Slam Basketball Kit"
                 class="w-full h-72 object-cover transition-transform duration-700 group-hover:scale-110"
                 loading="lazy"
@@ -820,7 +820,7 @@
           >
             <div class="relative overflow-hidden">
               <img
-                src="./assets/images/20613a19-eee7-47e0-acad-6c1f3181d65b.JPG"
+                src="/assets/images/20613a19-eee7-47e0-acad-6c1f3181d65b.JPG"
                 alt="Training Kit"
                 class="w-full h-72 object-cover transition-transform duration-700 group-hover:scale-110"
                 loading="lazy"
@@ -1625,49 +1625,49 @@
         </h2>
         <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
           <img
-            src="./assets/images/2f72dba6-0809-4dfd-b469-bde31fa19cd7.JPG"
+            src="/assets/images/2f72dba6-0809-4dfd-b469-bde31fa19cd7.JPG"
             alt="Team in action"
             class="rounded-lg shadow-md hover-zoom"
             loading="lazy"
           />
           <img
-            src="./assets/images/40909026-6242-40db-858c-0f0761788adf.JPG"
+            src="/assets/images/40909026-6242-40db-858c-0f0761788adf.JPG"
             alt="Team celebration"
             class="rounded-lg shadow-md hover-zoom"
             loading="lazy"
           />
           <img
-            src="./assets/images/4e4a0648-07da-45db-9539-41146dbd8674.JPG"
+            src="/assets/images/4e4a0648-07da-45db-9539-41146dbd8674.JPG"
             alt="Training session"
             class="rounded-lg shadow-md hover-zoom"
             loading="lazy"
           />
           <img
-            src="./assets/images/51011e88-5684-4b9c-83b3-0c7964395918.JPG"
+            src="/assets/images/51011e88-5684-4b9c-83b3-0c7964395918.JPG"
             alt="Match day"
             class="rounded-lg shadow-md hover-zoom"
             loading="lazy"
           />
           <img
-            src="./assets/images/5543abf4-8bfd-451e-93ce-0641d0bcbdde.JPG"
+            src="/assets/images/5543abf4-8bfd-451e-93ce-0641d0bcbdde.JPG"
             alt="Team huddle"
             class="rounded-lg shadow-md hover-zoom"
             loading="lazy"
           />
           <img
-            src="./assets/images/5561abd5-98c9-42b3-aebf-a28b84e50a98.JPG"
+            src="/assets/images/5561abd5-98c9-42b3-aebf-a28b84e50a98.JPG"
             alt="Victory moment"
             class="rounded-lg shadow-md hover-zoom"
             loading="lazy"
           />
           <img
-            src="./assets/images/56a25278-e4a2-42c3-b9bd-bd45d3bbc068.JPG"
+            src="/assets/images/56a25278-e4a2-42c3-b9bd-bd45d3bbc068.JPG"
             alt="Team spirit"
             class="rounded-lg shadow-md hover-zoom"
             loading="lazy"
           />
           <img
-            src="./assets/images/5edd71f3-fa33-4330-b6bd-7c0031388a45.JPG"
+            src="/assets/images/5edd71f3-fa33-4330-b6bd-7c0031388a45.JPG"
             alt="Championship"
             class="rounded-lg shadow-md hover-zoom"
             loading="lazy"
@@ -1812,7 +1812,7 @@
             <div class="flex items-center mb-6">
               <div class="relative">
                 <img
-                  src="./logo.png"
+                  src="/logo.png"
                   alt="Kit World Sports Logo"
                   class="h-16 w-16 rounded-2xl shadow-lg"
                 />
@@ -2004,8 +2004,8 @@
         "@type": "Organization",
         "name": "Kit World Sports",
         "description": "Premium custom sports kits for teams and individuals",
-        "url": "https://iusamakhan.github.io/kws-sports-kit/",
-        "logo": "https://iusamakhan.github.io/kws-sports-kit/logo.png",
+        "url": "https://kitworldsports.com",
+        "logo": "https://kitworldsports.com/logo.png",
         "address": {
           "@type": "PostalAddress",
           "streetAddress": "Small Industrial Estate, Shahabpura Road",
