@@ -1,0 +1,46 @@
+{
+  "name": "kit-world-sports-website",
+  "version": "1.0.0",
+  "description": "Modern PWA website for Kit World Sports - Premium Custom Sports Kits",
+  "main": "index.html",
+  "scripts": {
+    "start": "python3 -m http.server 8000",
+    "serve": "npx serve .",
+    "build": "node build.js",
+    "optimize-images": "node optimize-images.js",
+    "validate": "npx html-validate index.html",
+    "lighthouse": "npx lighthouse http://localhost:8000 --output=html --output-path=./lighthouse-report.html",
+    "deploy": "npm run build && gh-pages -d dist"
+  },
+  "keywords": [
+    "sports",
+    "kits",
+    "pwa",
+    "tailwindcss",
+    "modern-web"
+  ],
+  "author": "Kit World Sports",
+  "license": "MIT",
+  "devDependencies": {
+    "html-minifier": "^4.0.0",
+    "css-minifier": "^1.0.1",
+    "terser": "^5.0.0",
+    "sharp": "^0.32.0",
+    "html-validate": "^8.0.0",
+    "lighthouse": "^11.0.0",
+    "gh-pages": "^6.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kitworldsports/website.git"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead",
+    "not ie 11"
+  ],
+  "engines": {
+    "node": ">=16.0.0"
+  }
+}

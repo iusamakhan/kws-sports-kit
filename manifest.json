@@ -1,0 +1,35 @@
+{
+  "name": "Kit World Sports - Premium Custom Sports Kits",
+  "short_name": "Kit World Sports",
+  "description": "Premium custom sports kits for teams and individuals. Cricket, football, basketball kits with custom names, numbers, and fast delivery.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#f5b33d",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/logo.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["sports", "shopping", "business"],
+  "lang": "en",
+  "scope": "/",
+  "screenshots": [
+    {
+      "src": "/assets/images/042661c1-4ad3-40b5-8ddd-f536020fa179.JPG",
+      "sizes": "1280x720",
+      "type": "image/jpeg",
+      "form_factor": "wide"
+    }
+  ]
+}
