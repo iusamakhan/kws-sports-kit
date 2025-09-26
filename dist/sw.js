@@ -1,10 +1,10 @@
 // Service Worker for Kit World Sports PWA
 const CACHE_NAME = "kit-world-sports-v1";
 const urlsToCache = [
-  "./",
-  "./index.html",
-  "./logo.png",
-  "./manifest.json",
+  "/",
+  "/index.html",
+  "/logo.png",
+  "/manifest.json",
   "https://cdn.tailwindcss.com",
   "https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Roboto:wght@400;500;700;900&display=swap",
 ];
