@@ -135,6 +135,15 @@
         --shadow-glow: 0 0 20px rgba(245, 179, 61, 0.3);
       }
 
+      /* Fix scroll position for sticky header */
+      html {
+        scroll-behavior: smooth;
+      }
+
+      section {
+        scroll-margin-top: 80px;
+      }
+
       .hero-gradient {
         background: var(--gradient-hero);
       }
@@ -797,12 +806,6 @@
                 fabric
               </p>
               <div class="flex justify-between items-center">
-                <div>
-                  <span class="text-3xl font-bold text-primary-yellow"
-                    >PKR 2,500</span
-                  >
-                  <p class="text-sm text-silver-gray">Starting from</p>
-                </div>
                 <button class="btn-primary group/btn">
                   <span class="flex items-center">
                     View Details
@@ -863,12 +866,6 @@
                 Professional football jersey with moisture-wicking technology
               </p>
               <div class="flex justify-between items-center">
-                <div>
-                  <span class="text-3xl font-bold text-primary-yellow"
-                    >PKR 3,200</span
-                  >
-                  <p class="text-sm text-silver-gray">Starting from</p>
-                </div>
                 <button class="btn-primary group/btn">
                   <span class="flex items-center">
                     View Details
@@ -929,12 +926,6 @@
                 High-performance basketball uniform with enhanced mobility
               </p>
               <div class="flex justify-between items-center">
-                <div>
-                  <span class="text-3xl font-bold text-primary-yellow"
-                    >PKR 2,800</span
-                  >
-                  <p class="text-sm text-silver-gray">Starting from</p>
-                </div>
                 <button class="btn-primary group/btn">
                   <span class="flex items-center">
                     View Details
@@ -995,12 +986,6 @@
                 Comfortable training wear perfect for practice sessions
               </p>
               <div class="flex justify-between items-center">
-                <div>
-                  <span class="text-3xl font-bold text-primary-yellow"
-                    >PKR 2,000</span
-                  >
-                  <p class="text-sm text-silver-gray">Starting from</p>
-                </div>
                 <button class="btn-primary group/btn">
                   <span class="flex items-center">
                     View Details
@@ -1027,7 +1012,7 @@
         <!-- View All Button -->
         <div class="text-center mt-12">
           <a
-            href="#contact"
+            href="#gallery"
             class="inline-flex items-center px-8 py-4 bg-dark-charcoal text-white font-semibold rounded-xl hover:bg-opacity-90 transition-all duration-300 group"
           >
             <span>View All Products</span>
@@ -1437,7 +1422,7 @@
     </section>
 
     <!-- Complete Product Gallery -->
-    <section class="py-20 bg-gray-50">
+    <section id="gallery" class="py-20 bg-gray-50">
       <div class="container mx-auto px-4">
         <div class="text-center mb-16 slide-up">
           <h2 class="text-4xl md:text-5xl font-bold font-heading mb-4">
@@ -1449,6 +1434,7 @@
         </div>
 
         <div
+          id="product-gallery-grid"
           class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6"
         >
           <!-- Cricket Kits -->
@@ -1636,7 +1622,7 @@
           <div class="card-modern overflow-hidden group">
             <div class="relative overflow-hidden">
               <img
-                data-src="assets/images/4e4a0648-07da-45db-9539-41146dbd8674.JPG"
+                data-src="assets/images/40909026-6242-40db-858c-0f0761788adf.JPG"
                 alt="Training session"
                 class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110"
                 loading="lazy"
@@ -1665,7 +1651,7 @@
           <div class="card-modern overflow-hidden group">
             <div class="relative overflow-hidden">
               <img
-                data-src="assets/images/51011e88-5684-4b9c-83b3-0c7964395918.JPG"
+                data-src="assets/images/80104a0f-4011-43bd-a927-57e00bcb2071.JPG"
                 alt="Match day"
                 class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110"
                 loading="lazy"
@@ -1694,7 +1680,7 @@
           <div class="card-modern overflow-hidden group">
             <div class="relative overflow-hidden">
               <img
-                data-src="assets/images/5543abf4-8bfd-451e-93ce-0641d0bcbdde.JPG"
+                data-src="assets/images/98efc563-9cd6-4e7d-af32-765b68addbda.JPG"
                 alt="Team huddle"
                 class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110"
                 loading="lazy"
@@ -1723,7 +1709,7 @@
           <div class="card-modern overflow-hidden group">
             <div class="relative overflow-hidden">
               <img
-                data-src="assets/images/5561abd5-98c9-42b3-aebf-a28b84e50a98.JPG"
+                data-src="assets/images/bc0fcacc-3507-468f-9400-04b575d79bd0.JPG"
                 alt="Victory moment"
                 class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110"
                 loading="lazy"
@@ -2588,7 +2574,7 @@
         }
       });
 
-      // Enhanced Smooth Scrolling with Offset
+      // Enhanced Smooth Scrolling
       document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
         anchor.addEventListener("click", function (e) {
           e.preventDefault();
@@ -2596,12 +2582,9 @@
           const target = document.querySelector(targetId);
 
           if (target) {
-            const headerHeight = document.querySelector("header").offsetHeight;
-            const targetPosition = target.offsetTop - headerHeight - 20;
-
-            window.scrollTo({
-              top: targetPosition,
+            target.scrollIntoView({
               behavior: "smooth",
+              block: "start",
             });
           }
         });
@@ -2992,7 +2975,6 @@
       document.querySelectorAll('a[href*="wa.me"]').forEach((link) => {
         link.addEventListener("click", function () {
           // Analytics tracking can be added here
-          console.log("WhatsApp contact initiated");
         });
       });
 
@@ -3015,11 +2997,11 @@
         window.addEventListener("load", () => {
           navigator.serviceWorker
             .register("sw.js")
-            .then((registration) => {
-              console.log("SW registered: ", registration);
+            .then(() => {
+              // Service worker registered successfully
             })
-            .catch((registrationError) => {
-              console.log("SW registration failed: ", registrationError);
+            .catch(() => {
+              // Service worker registration failed
             });
         });
       }
@@ -3079,12 +3061,9 @@
       function scrollToSection(sectionId) {
         const section = document.getElementById(sectionId);
         if (section) {
-          const headerHeight = document.querySelector("header").offsetHeight;
-          const targetPosition = section.offsetTop - headerHeight - 20;
-
-          window.scrollTo({
-            top: targetPosition,
+          section.scrollIntoView({
             behavior: "smooth",
+            block: "start",
           });
         }
       }
@@ -3233,16 +3212,49 @@
       // Initialize background rotation when page loads
       document.addEventListener("DOMContentLoaded", () => {
         startBackgroundRotation();
-      });
 
-      // Console welcome message
-      console.log(`
-        🏏 Kit World Sports - Premium Custom Sports Kits
-        🚀 Modern PWA website loaded successfully!
-        📱 Mobile optimized with touch gestures
-        🎨 Dynamic hero backgrounds: ${heroBackgrounds.length} images
-        📞 Contact: +92 334-6688701 | kitworldsports01@gmail.com
-      `);
+        // Dynamic Product Catalog from assets/images.json
+        (async function renderDynamicCatalog() {
+          const grid = document.getElementById("product-gallery-grid");
+          if (!grid) return;
+
+          try {
+            const res = await fetch("assets/images.json", {
+              cache: "no-store",
+            });
+            if (!res.ok) throw new Error("Failed to fetch images.json");
+            const payload = await res.json();
+
+            // Clear any static items
+            grid.innerHTML = "";
+
+            const fragment = document.createDocumentFragment();
+            payload.images.forEach((img) => {
+              const card = document.createElement("div");
+              card.className = "card-modern overflow-hidden group";
+              card.innerHTML = `
+                <div class="relative overflow-hidden">
+                  <img data-src="${img.src}" alt="${img.alt}" class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110 loading" loading="lazy" />
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                </div>
+                <div class="p-4">
+                  <h3 class="text-lg font-bold mb-1 group-hover:text-primary-yellow transition-colors duration-300">${img.alt}</h3>
+                  <p class="text-silver-gray text-sm">Premium custom kit</p>
+                </div>
+              `;
+              fragment.appendChild(card);
+            });
+            grid.appendChild(fragment);
+
+            // Re-init lazy loading for newly added images
+            if (typeof initImageOptimization === "function") {
+              initImageOptimization();
+            }
+          } catch (e) {
+            console.warn("Dynamic catalog failed:", e);
+          }
+        })();
+      });
     </script>
 
     <!-- JSON-LD Schema for Products -->
