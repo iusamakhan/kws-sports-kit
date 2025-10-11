@@ -2704,17 +2704,45 @@
             // Show loading state
             toggleButtonState("loading");
 
-            // Simulate form submission (replace with actual API call)
+            // Prepare WhatsApp message
+            const name = formData.get("name");
+            const email = formData.get("email");
+            const phone = formData.get("phone");
+            const sport = formData.get("sport");
+            const teamSize = formData.get("team-size");
+            const message = formData.get("message");
+
+            // Format message for WhatsApp
+            let whatsappMessage = `*New Contact Form Submission*\n\n`;
+            whatsappMessage += `*Name:* ${name}\n`;
+            whatsappMessage += `*Email:* ${email}\n`;
+            if (phone) whatsappMessage += `*Phone:* ${phone}\n`;
+            if (sport) whatsappMessage += `*Sport Type:* ${sport}\n`;
+            if (teamSize) whatsappMessage += `*Team Size:* ${teamSize}\n`;
+            if (message) whatsappMessage += `\n*Message:*\n${message}`;
+
+            // WhatsApp number (without + sign for URL)
+            const whatsappNumber = "923346688701";
+
+            // Create WhatsApp URL
+            const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
+              whatsappMessage
+            )}`;
+
+            // Small delay for better UX
             setTimeout(() => {
-              // Success state
+              // Open WhatsApp
+              window.open(whatsappURL, "_blank");
+
+              // Show success state
               toggleButtonState("success");
               formSuccess.classList.remove("hidden");
 
               // Reset form after delay
               setTimeout(() => {
                 resetForm();
-              }, 4000);
-            }, 2000);
+              }, 3000);
+            }, 500);
           });
         }
 
